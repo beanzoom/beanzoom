@@ -880,6 +880,8 @@ function FooterSection() {
 
             {/* Honeypot for spam prevention */}
             <input type="text" name="_gotcha" className="hidden" />
+            {/* Prevent Formspree redirect */}
+            <input type="hidden" name="_next" value="https://beanzoom.com/#contact" />
 
             <button
               type="submit"
