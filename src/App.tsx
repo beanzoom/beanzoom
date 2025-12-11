@@ -392,18 +392,18 @@ function DevelopmentRevolutionSection() {
 
               <div className="space-y-4">
                 {traditionalSteps.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 opacity-60">
-                    <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-red-400/60">
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-red-400">
                       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </div>
                     <div className="flex-1">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-semibold text-gray-400 line-through">{item.step}</span>
-                        <span className="text-xs text-red-400/80">{item.time}</span>
+                        <span className="font-semibold text-gray-300 line-through">{item.step}</span>
+                        <span className="text-xs text-red-400">{item.time}</span>
                       </div>
-                      <p className="text-sm text-gray-500 line-through">{item.desc}</p>
+                      <p className="text-sm text-gray-400 line-through">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -411,11 +411,11 @@ function DevelopmentRevolutionSection() {
 
               <div className="mt-8 pt-6 border-t border-red-500/20">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500">Total Timeline:</span>
+                  <span className="text-gray-400">Total Timeline:</span>
                   <span className="text-xl font-display font-bold text-red-400 line-through">6-12 months</span>
                 </div>
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-gray-500">Typical Cost:</span>
+                  <span className="text-gray-400">Typical Cost:</span>
                   <span className="text-xl font-display font-bold text-red-400 line-through">$50k - $250k+</span>
                 </div>
               </div>
