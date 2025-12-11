@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Icons as simple SVG components
@@ -42,12 +43,13 @@ function Navigation() {
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="#problem" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">The Gap</a>
-            <a href="#solution" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">Our Approach</a>
+            <a href="#how-it-works" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">Solution</a>
+            <a href="#development" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">Our Method</a>
             <a href="#case-study" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">Results</a>
             <a href="#industries" className="text-sm text-gray-300 hover:text-brand-shine transition-colors">Industries</a>
           </div>
           <a href="#contact" className="btn-metallic text-sm rounded-md">
-            Get Audit
+            Let's Talk
           </a>
         </div>
       </div>
@@ -111,7 +113,7 @@ function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a href="#contact" className="btn-metallic rounded-md text-center">
-              Get a Workflow Audit
+              Start a Conversation
             </a>
             <a href="#how-it-works" className="px-8 py-4 font-semibold text-gray-300 hover:text-white border border-white/20 hover:border-brand-shine/50 rounded-md transition-all text-center">
               See How It Works
@@ -332,6 +334,186 @@ function SolutionSection() {
               <a href="#contact" className="btn-metallic rounded-md inline-flex items-center gap-2">
                 Let's Talk <IconArrowRight />
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Development Revolution Section
+function DevelopmentRevolutionSection() {
+  const traditionalSteps = [
+    { step: 'Discovery Phase', time: '2-4 weeks', desc: 'Endless meetings, stakeholder interviews' },
+    { step: 'Proposal & SOW', time: '1-2 weeks', desc: 'Legal review, scope negotiations' },
+    { step: 'Wireframes & Mockups', time: '2-3 weeks', desc: 'Design iterations, approval cycles' },
+    { step: 'Sprint Planning', time: 'Ongoing', desc: 'Backlog grooming, story pointing' },
+    { step: 'Development Sprints', time: '3-6 months', desc: 'Two-week cycles, demos, retrospectives' },
+    { step: 'Change Requests', time: '$$$', desc: 'Every pivot costs you more' },
+    { step: 'UAT & Bug Fixes', time: '2-4 weeks', desc: 'Testing cycles, regression hunts' },
+    { step: 'Go Live', time: 'Eventually', desc: 'If budget and patience remain' },
+  ];
+
+  return (
+    <section id="development" className="section-padding bg-navy-dark">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <p className="text-brand-shine font-semibold mb-4">THE REVOLUTION</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
+            Custom Software Development<br />
+            <span className="text-gradient">Just Got a New Engine</span>
+          </h2>
+          <p className="text-xl text-gray-300">
+            The traditional development process was designed for a world of $200/hour developers and waterfall methodologies.
+            <span className="text-white font-semibold"> AI changes everything.</span>
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Traditional Method - The Old Way */}
+          <div className="glass-panel p-6 md:p-8 border-red-500/30 relative overflow-hidden">
+            {/* Diagonal "OBSOLETE" watermark */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <span className="text-6xl md:text-8xl font-display font-bold text-red-500/10 -rotate-12">
+                OBSOLETE
+              </span>
+            </div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-display font-bold text-red-400">The Traditional Method</h3>
+              </div>
+
+              <div className="space-y-4">
+                {traditionalSteps.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4 opacity-60">
+                    <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-red-400/60">
+                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-semibold text-gray-400 line-through">{item.step}</span>
+                        <span className="text-xs text-red-400/80">{item.time}</span>
+                      </div>
+                      <p className="text-sm text-gray-500 line-through">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-red-500/20">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500">Total Timeline:</span>
+                  <span className="text-xl font-display font-bold text-red-400 line-through">6-12 months</span>
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-gray-500">Typical Cost:</span>
+                  <span className="text-xl font-display font-bold text-red-400 line-through">$50k - $250k+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Beanzoom Method - The New Way */}
+          <div className="glass-panel p-6 md:p-8 border-brand-shine/40 relative">
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 via-transparent to-brand-shine/5 rounded-lg" />
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-brand-blue/30 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-brand-shine" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-display font-bold text-brand-shine">The Beanzoom Method</h3>
+              </div>
+
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-emerald-400">
+                    <IconCheck />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white">Show, Don't Tell</span>
+                    <p className="text-sm text-gray-400">We prototype your core workflow before you sign anything. See it working in <span className="text-brand-shine font-semibold">1-2 days</span>.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-emerald-400">
+                    <IconCheck />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white">Real-Time Iteration</span>
+                    <p className="text-sm text-gray-400">Sit with us. Watch it change. "Can it do X?" becomes "Yes, look" — not a change request.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-emerald-400">
+                    <IconCheck />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white">No Sprint Ceremonies</span>
+                    <p className="text-sm text-gray-400">No backlog grooming. No story pointing. No two-week waits. Just continuous delivery.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-emerald-400">
+                    <IconCheck />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white">Pivots Included</span>
+                    <p className="text-sm text-gray-400">Changed your mind? Great. That's not a $10k change order — it's a conversation.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 mt-0.5 text-emerald-400">
+                    <IconCheck />
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white">Hours & Days, Not Months</span>
+                    <p className="text-sm text-gray-400">Full production systems delivered in <span className="text-brand-shine font-semibold">days to weeks</span>. Never months.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-brand-shine/20">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-400">Prototype Ready:</span>
+                  <span className="text-xl font-display font-bold text-brand-shine">1-2 Days</span>
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-gray-400">Production System:</span>
+                  <span className="text-xl font-display font-bold text-brand-shine">1-4 Weeks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom callout */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-4 glass-panel px-8 py-4 border-brand-shine/30">
+            <div className="text-4xl">🚀</div>
+            <div className="text-left">
+              <p className="font-display font-bold text-xl text-white">
+                AI didn't just speed things up. It eliminated the roadblocks entirely.
+              </p>
+              <p className="text-gray-400">
+                Discovery, proposals, wireframes, sprints — <span className="text-brand-shine">all artifacts of a slower era.</span>
+              </p>
             </div>
           </div>
         </div>
@@ -580,21 +762,67 @@ function TechTrustSection() {
 
 // Footer / Contact CTA
 function FooterSection() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mkgdpvpr', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        setFormStatus('error');
+        setTimeout(() => setFormStatus('idle'), 5000);
+      }
+    } catch {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 5000);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="text-brand-shine font-semibold mb-4">TAKE THE FIRST STEP</p>
+        <p className="text-brand-shine font-semibold mb-4">START THE CONVERSATION</p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-          Apply for a Workflow Audit
+          Let's Explore What's Possible
         </h2>
         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-          Tell us what industry you're in and send us a screenshot of the spreadsheet that keeps you up at night. We'll tell you if it's a candidate for a Beanzoom ERP.
+          Every business has a unique operational fingerprint. Tell us about yours, and we'll show you what a custom solution could look like — <span className="text-white font-semibold">no commitment, no sales pitch</span>.
         </p>
+
+        {/* Success/Error Notification */}
+        {formStatus === 'success' && (
+          <div className="mb-8 p-4 bg-emerald-500/20 border border-emerald-500/50 rounded-lg flex items-center justify-center gap-3 animate-in fade-in duration-300">
+            <span className="text-emerald-400"><IconCheck /></span>
+            <p className="text-emerald-300 font-semibold">Thanks! We'll be in touch within 24 hours.</p>
+          </div>
+        )}
+
+        {formStatus === 'error' && (
+          <div className="mb-8 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+            <p className="text-red-300">Something went wrong. Please try again or email us directly.</p>
+          </div>
+        )}
 
         <div className="glass-panel p-8 md:p-12 border-brand-shine/40">
           <form
-            action="https://formspree.io/f/mkgdpvpr"
-            method="POST"
+            onSubmit={handleSubmit}
             className="space-y-6"
           >
             <div className="grid md:grid-cols-2 gap-6">
@@ -605,7 +833,8 @@ function FooterSection() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors disabled:opacity-50"
                   placeholder="John Smith"
                 />
               </div>
@@ -616,7 +845,8 @@ function FooterSection() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors disabled:opacity-50"
                   placeholder="john@company.com"
                 />
               </div>
@@ -629,28 +859,34 @@ function FooterSection() {
                 id="industry"
                 name="industry"
                 required
-                className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors"
+                disabled={formStatus === 'submitting'}
+                className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors disabled:opacity-50"
                 placeholder="e.g., Commercial Flooring, Property Management, Event Production"
               />
             </div>
 
             <div className="text-left">
-              <label htmlFor="pain_point" className="block text-sm text-gray-400 mb-2">What's Your Biggest Operational Pain Point?</label>
+              <label htmlFor="pain_point" className="block text-sm text-gray-400 mb-2">Tell Us About Your Operations</label>
               <textarea
                 id="pain_point"
                 name="pain_point"
                 rows={4}
                 required
-                className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors resize-none"
-                placeholder="Describe the spreadsheet nightmare, the process that breaks, or the thing that keeps you up at night..."
+                disabled={formStatus === 'submitting'}
+                className="w-full px-4 py-3 bg-navy-dark border border-white/20 rounded-md focus:border-brand-shine focus:outline-none focus:ring-1 focus:ring-brand-shine transition-colors resize-none disabled:opacity-50"
+                placeholder="What does your day-to-day look like? What processes feel broken? What would change if you had real-time visibility into everything?"
               />
             </div>
 
             {/* Honeypot for spam prevention */}
             <input type="text" name="_gotcha" className="hidden" />
 
-            <button type="submit" className="btn-metallic rounded-md w-full md:w-auto">
-              Request Workflow Audit
+            <button
+              type="submit"
+              disabled={formStatus === 'submitting'}
+              className="btn-metallic rounded-md w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {formStatus === 'submitting' ? 'Sending...' : "Let's Talk"}
             </button>
           </form>
         </div>
@@ -679,6 +915,7 @@ function LandingPage() {
       <HeroSection />
       <GapSection />
       <SolutionSection />
+      <DevelopmentRevolutionSection />
       <CaseStudySection />
       <IndustriesSection />
       <TechTrustSection />
