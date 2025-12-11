@@ -823,6 +823,8 @@ function FooterSection() {
         <div className="glass-panel p-8 md:p-12 border-brand-shine/40">
           <form
             onSubmit={handleSubmit}
+            action="https://formspree.io/f/mkgdpvpr"
+            method="POST"
             className="space-y-6"
           >
             <div className="grid md:grid-cols-2 gap-6">
