@@ -41,11 +41,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Beanzoom Brand Colors
+        navy: {
+          DEFAULT: "#0F2039",
+          light: "#1a3050",
+          dark: "#0a1525",
+        },
+        brand: {
+          blue: "#0055A4",
+          shine: "#A0E4FF",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'metallic': 'linear-gradient(110deg, #0F2039 0%, #0055A4 40%, #A0E4FF 50%, #0055A4 60%, #0F2039 100%)',
+        'metallic-dark': 'linear-gradient(135deg, #0F2039 0%, #1a3050 50%, #0F2039 100%)',
       },
     },
   },
